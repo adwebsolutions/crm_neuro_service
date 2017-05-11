@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="adw_custom_fields_crm" model="ir.ui.view">
+        <field name="name">Neuro Service Campos Personalizados de Oportunidades</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor" />
+        <field name="arch" type="xml">
+			<field name="user_id" position="replace">
+			    <field name="user_id" string="Asesor Comercial"/>
+		    </field>
+		    <field name="name" position="replace">
+			    <field name="name" string="Título"/>
+		    </field>
+			<field name="partner_id" position="replace">
+			    <field name="partner_id" string="Prospecto / Cliente"/>
+		    </field>
+		    <data>
+				<field name="priority" position="replace"/>
+				<field name="date_deadline" position="replace"/>
+            </data>
+			<!-- Fin Eliminar campos -->
+			<field name="categ_ids" position="after">
+				<field name="neuro_fecha_de_cita" />
+				<field name="medium_id" placeholder="Canal o Medio"/>
+			</field>
+			<field name="user_id" position="after">
+				<field name="neuro_seguimiento" />
+				<field name="neuro_productos" string="Productos" widget="many2many_tags" placeholder="Seleccionar productos" />
+				<field name="neuro_servicios" string="Servicios" widget="many2many_tags" placeholder="Seleccionar servicios" />
+			</field>
+			<field name="medium_id" position="replace">
+				<field name="source_id" placeholder="Origen de la oportunidad" />
+				<field name="neuro_evento" placeholder="Nombre del evento" />
+			</field>
+        </field>
+    </record>
+  </data>
+</openerp>
