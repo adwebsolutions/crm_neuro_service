@@ -2,24 +2,31 @@
 <openerp>
   <data>
       <record id="adw_view_partners_form_crm" model="ir.ui.view">
-          <field name="name">Neuro Service Campos Personalizados de Clientes</field>
-          <field name="model">res.partner</field>
-          <field name="inherit_id" ref="base.view_partner_form"/>
-          <field name="arch" type="xml">
-            <field name="category_id" position="after">
-                <hr attrs="{'invisible':[('is_company', '=', False)]}" />
-                <h2 attrs="{'invisible':[('is_company', '=', False)]}" >Otros datos de la Compañia </h2>
-                <field name="neuro_rfc" placeholder="Código RFC"   attrs="{'invisible':[('is_company', '=', False)]}" />
-                <field name="neuro_razon_social" placeholder="Razón Social"   attrs="{'invisible':[('is_company', '=', False)]}"  />
-                <field name="neuro_domicilio_fiscal" placeholder="Domicilio Fiscal"   attrs="{'invisible':[('is_company', '=', False)]}"  />
-            </field>
-            <field name="title" position="replace">
-                <field name="title" attrs="{'invisible':[('is_company', '=', True)]}" string="Profesión"/>
-                <field name="neuro_especialidad" widget="many2many_tags" attrs="{'invisible':[('is_company', '=', True)]}" string="Especialidad"/>
+        <field name="name">Neuro Service Campos Personalizados de Clientes</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+          <field name="category_id" position="after">
+              <hr attrs="{'invisible':[('is_company', '=', False)]}" />
+              <h2 attrs="{'invisible':[('is_company', '=', False)]}" >Otros datos de la Compañia </h2>
+              <field name="neuro_rfc" placeholder="Código RFC"   attrs="{'invisible':[('is_company', '=', False)]}" />
+              <field name="neuro_razon_social" placeholder="Razón Social"   attrs="{'invisible':[('is_company', '=', False)]}"  />
+              <field name="neuro_domicilio_fiscal" placeholder="Domicilio Fiscal"   attrs="{'invisible':[('is_company', '=', False)]}"  />
+          </field>
+          <field name="title" position="replace">
+              <field name="title" attrs="{'invisible':[('is_company', '=', True)]}" string="Profesión"/>
+              <field name="neuro_especialidad" widget="many2many_tags" attrs="{'invisible':[('is_company', '=', True)]}" string="Especialidad"/>
           </field>
           <field name="user_id" position="replace">
-                <field name="user_id" string="Asesor Comercial"/>
+              <field name="user_id" string="Asesor Comercial"/>
           </field>
+          <data>
+            <field name="type" position="replace"/>
+            <field name="ref" position="replace"/>
+            <field name="date" position="replace"/>
+            <field name="supplier" position="replace"/>
+            <field name="customer" position="replace"/>
+          </data>
         </field>
       </record>
   </data>

@@ -9,9 +9,6 @@
 			<field name="user_id" position="replace">
 			    <field name="user_id" string="Asesor Comercial"/>
 		    </field>
-		    <field name="name" position="replace">
-			    <field name="name" string="Título"/>
-		    </field>
 			<field name="partner_id" position="replace">
 			    <field name="partner_id" string="Prospecto / Cliente"/>
 		    </field>
@@ -25,13 +22,14 @@
 				<field name="medium_id" placeholder="Canal o Medio"/>
 			</field>
 			<field name="user_id" position="after">
-				<field name="neuro_seguimiento" />
 				<field name="neuro_productos" string="Productos" widget="many2many_tags" placeholder="Seleccionar productos" />
 				<field name="neuro_servicios" string="Servicios" widget="many2many_tags" placeholder="Seleccionar servicios" />
+				<field name="neuro_seguimiento" />
 			</field>
 			<field name="medium_id" position="replace">
-				<field name="source_id" placeholder="Origen de la oportunidad" />
-				<field name="neuro_evento" placeholder="Nombre del evento" />
+				<field name="source_id" placeholder="Origen de la oportunidad" on_change="on_change_price(source_id)" />
+				<field name="tengo" placeholder="Nombre del evento" attrs="{'invisible':[('tengo', '!=', 'tengo')]}"/>
+				<field name="neuro_evento" placeholder="Nombre del evento" attrs="{'invisible':[('tengo', '!=', 'Evento')]}"/>
 			</field>
         </field>
     </record>
