@@ -13,20 +13,25 @@
               <field name="neuro_razon_social" placeholder="Razón Social"   attrs="{'invisible':[('is_company', '=', False)]}"  />
               <field name="neuro_domicilio_fiscal" placeholder="Domicilio Fiscal"   attrs="{'invisible':[('is_company', '=', False)]}"  />
           </field>
-          <field name="title" position="replace">
-              <field name="title" attrs="{'invisible':[('is_company', '=', True)]}" string="Profesión"/>
+          <field name="title" position="after">
               <field name="neuro_especialidad" widget="many2many_tags" attrs="{'invisible':[('is_company', '=', True)]}" string="Especialidad"/>
           </field>
-          <field name="user_id" position="replace">
-              <field name="user_id" string="Asesor Comercial"/>
+          <field name="title" position="attributes">
+            <attribute name="string">Profesión</attribute>
+            <attribute name="attrs">{'invisible':[('is_company', '=', True)]}</attribute>
+          </field>
+          <field name="user_id" position="attributes">
+            <attribute name="string">Asesor Comercial </attribute>
           </field>
           <data>
             <field name="type" position="replace"/>
             <field name="ref" position="replace"/>
             <field name="date" position="replace"/>
-            <field name="supplier" position="replace"/>
             <field name="customer" position="replace"/>
           </data>
+          <field name="supplier" position="attributes">
+            <attribute name="attrs">{'invisible':True}</attribute>
+          </field>
         </field>
       </record>
   </data>

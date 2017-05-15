@@ -16,5 +16,5 @@ class PartnerCustomFields(models.Model):
   neuro_especialidad      = fields.Many2many('neuro.especialidad')
 
   class neuroEspecialidad (models.Model):
-            _name = 'neuro.especialidad'
-            name  = fields.Char('Especialidad', required=True)
+    _name = 'neuro.especialidad'
+    name  = fields.Char('Especialidad', required=True)
