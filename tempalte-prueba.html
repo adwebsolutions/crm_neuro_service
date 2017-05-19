@@ -36,9 +36,9 @@ Todo bien ;)
 				</ul>
 				<br><br>
 			% endif
-			% if object.neuro_guia:
+			% if object.neuro_guia and object.probability >= 100:
 				Número de Guía:
-				${object.neuro_guia.name}
+				${object.neuro_guia}
 				<br><br>
 			% endif
 				Fechas de entrega:
