@@ -1,0 +1,45 @@
+Todo bien ;)
+<html>
+    <head>
+    	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        </head>
+        <body>
+        <div>
+        	Nombre: ${object.partner_id.name}
+        	<br><br>
+        	% if object.source_id.name:	
+        		Fuente: ${object.source_id.name}
+        		% if object.neuro_evento.name:
+        			en ${object.neuro_evento.name}	
+        		% endif
+        		<br><br>
+        	% endif
+        	% if object.neuro_productos:	
+				Productos:
+				<ul>
+				% for neuro_productos in  object.neuro_productos:
+					<li>
+						${neuro_productos.name}
+					</li>
+				% endfor
+				</ul>
+				<br><br>
+			% endif
+			% if object.neuro_servicios:	
+				Servicios:
+				<ul>
+				% for neuro_servicios in  object.neuro_servicios:
+					<li>
+						${neuro_servicios.name}
+					</li>
+				% endfor
+				</ul>
+				<br><br>
+			% endif
+			Número de Guía:
+			<br><br>
+			Fechas de entrega:
+			<br>
+		</div>
+    </body>
+</html>
