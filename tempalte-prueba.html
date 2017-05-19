@@ -36,9 +36,12 @@ Todo bien ;)
 				</ul>
 				<br><br>
 			% endif
-			Número de Guía:
-			<br><br>
-			Fechas de entrega:
+			% if object.neuro_guia:
+				Número de Guía:
+				${object.neuro_guia.name}
+				<br><br>
+			% endif
+				Fechas de entrega:
 			<br>
 		</div>
     </body>
