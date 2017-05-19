@@ -1,0 +1,39 @@
+% if object.partner_id.name:	
+	Estimado ${object.partner_id.name}
+%endif
+
+Gracias por contactarnos a través de nuestro ${object.source_id.name}
+	%if !object.neuro_evento.name:
+    	,
+    % endif
+    % if object.neuro_evento.name:
+    	"${object.neuro_evento.name}",
+    % endif
+hemos recibido su solicitud de interés de los siguientes productos y/o servicios:
+
+% if object.neuro_productos:	
+<br><br>
+	Productos:
+	<ul>
+	% for neuro_productos in  object.neuro_productos:
+		<li>
+			${neuro_productos.name}
+		</li>
+	% endfor
+	</ul>
+	<br><br>
+% endif
+% if object.neuro_servicios:	
+Servicios:
+<ul>
+% for neuro_servicios in  object.neuro_servicios:
+	<li>
+		${neuro_servicios.name}
+	</li>
+% endfor
+</ul>
+<br><br>
+% endif
+Le estaremos enviando la información detallada a la brevedad, mientras tanto lo invitamos a que visite nuestra página <a href="http://www.neuroservice.com.mx">www.neuroservice.com.mx</a>
+<br><br>
+Saludos cordiales

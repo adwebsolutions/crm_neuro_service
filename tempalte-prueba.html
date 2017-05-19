@@ -2,8 +2,8 @@ Todo bien ;)
 <html>
     <head>
     	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-        </head>
-        <body>
+    </head>
+    <body>
         <div>
         	Nombre: ${object.partner_id.name}
         	<br><br>
@@ -36,9 +36,16 @@ Todo bien ;)
 				</ul>
 				<br><br>
 			% endif
-			Número de Guía:
-			<br><br>
-			Fechas de entrega:
+			% if object.neuro_guia and object.probability >= 100:
+				Número de Guía:
+				${object.neuro_guia}
+				<br><br>
+			% endif
+			% if object.neuro_fecha_llegada and object.probability >= 100:
+				Fecha de entrega:
+				${object.neuro_fecha_llegada}
+				<br><br>
+			% endif
 			<br>
 		</div>
     </body>
