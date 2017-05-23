@@ -26,12 +26,13 @@
 				<field name="source_id" placeholder="Origen de la oportunidad" on_change="on_change_origen(source_id)" />
 				<field name="neuro_evento" placeholder="Nombre del evento" attrs="{'invisible':[('tengo', '!=', 'Evento')]}"/>
 				<field name="tengo" placeholder="Nombre del evento" attrs="{'invisible':True}"/>
+				<field name="neuro_contador_productos" placeholder="Nombre del evento" attrs="{'invisible':True}"/>
 				<field name="neuro_guia" placeholder="No. de guía cuando se envíe el producto" attrs="{'invisible':[('probability', '!=', 100)]}" />
-				<field name="neuro_fecha_llegada" placeholder="Tiempo estimado" attrs="{'invisible':[('probability', '!=', 100)]}" />
+				<field name="neuro_fecha_llegada" placeholder="Tiempo estimado" field-options="{'format':'%d/%b/%Y'}" attrs="{'invisible':[('probability', '!=', 100)]}" />
 			</field>
 			<field name="user_id" position="after">
 				<field name="neuro_productos" string="Productos" widget="many2many_tags" placeholder="Seleccionar productos" />
-				<field name="neuro_servicios" string="Servicios" widget="many2many_tags" placeholder="Seleccionar servicios" />
+				<field name="neuro_servicios" string="Servicios" widget="many2many_tags"  placeholder="Seleccionar servicios" />
 			</field>
         </field>
     </record>

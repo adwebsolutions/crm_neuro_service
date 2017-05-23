@@ -7,7 +7,8 @@ class CrmCustomFields(models.Model):
   _inherit = "crm.lead"
 
   neuro_fecha_de_cita  = fields.Date('Fecha de Cita')
-  neuro_fecha_llegada  = fields.Datetime('Fecha y hora de Entrega')
+  neuro_hora_llegada  = fields.Datetime('Hora de Entrega')
+  neuro_fecha_llegada  = fields.Datetime('Fecha de Entrega')
   neuro_guia    = fields.Char(string="Número de Guía")
   neuro_canal          = fields.Selection(selection=[('formulario','Formulario'),('telefono', 'Teléfono'),('email', 'Email'),('facebook', 'Facebook'),('linkedin', 'Linkedin')], string ='Canal',  help="Canal por el cual llegó la oportunidad")
   neuro_origen         = fields.Many2one(comodel_name = 'neuro.origen', string ='Origen',  help="Origen de la oportunidad")
@@ -16,6 +17,7 @@ class CrmCustomFields(models.Model):
   neuro_productos      = fields.Many2many('neuro.productos')
   tengo                = fields.Char()
   neuro_especialidad_ini   = fields.Char()
+  neuro_contador_productos   = fields.Integer()
 
   def on_change_origen(self,cr,uid,ids,tengo,context=None):
   #Calculate the total
@@ -24,12 +26,17 @@ class CrmCustomFields(models.Model):
     #Return the values to update it in the view.
     return res
 
-  def on_change_esp(self,cr,uid,ids,partner_id_ini,context=None):
+  def on_change_esp(self,cr,uid,ids,neuro_contador_productos_,context=None):
   #Calculate the total
-    fuente_ini=self.pool.get('res.partner').browse(cr, uid, partner_id_ini, context).name
-    res_ini = {'value': {'neuro_especialidad_ini': partner_id_ini}}
+    if 'neuro_contador_productos' == False:
+       value['neuro_contador_productos']=0
+       
+    conta = 1
+    aumenta = neuro_contador_productos_ + conta
+
+    valor = {'value': {'neuro_contador_productos': aumenta}}
     #Return the values to update it in the view.
-    return res_ini
+    return valor
 
 
 class neuroServicios(models.Model):
