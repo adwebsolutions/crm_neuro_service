@@ -1,0 +1,37 @@
+**********Subject***************
+Estamos a sus órdenes
+
+******************Body**********
+
+<html>
+  	<head>
+    	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+ 	</head>
+	<body>
+		<div>
+		    <p>
+		       	% if object.partner_id.name:
+			       	Estimado
+			       	%if object.title:
+			       		% for title in  object.title:
+							${title.name}
+						% endfor
+			       	%endif
+			       	${object.partner_id.name} 
+				%endif
+		    </p>
+		    <p>
+				Esperamos tener la oportunidad de servirle próximamente, por favor no dude en consultar con nosotros cualquier requerimiento especial de productos relacionados con neurocirugía, dolor, nervio periférico.
+		    </p>
+		    <p>
+		    	Le agradeceríamos, la fecha oportuna en la que nos podamos volver a comunicar con usted.
+		    </p>
+		    <p>
+		      	Visite nuestra página de internet <a href="http://www.neuroservice.com.mx" target="_blank">www.neuroservice.com.mx</a> para ver novedades y eventos.
+		    </p>
+		    <p>
+		    	Saludos cordiales
+		    </p>
+	    </div>
+	</body>
+</html>

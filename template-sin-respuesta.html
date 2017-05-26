@@ -1,0 +1,38 @@
+**********Subject***************
+
+Seguimiento a su contacto
+
+******************Body**********
+
+<html>
+  	<head>
+    	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+ 	</head>
+	<body>
+		<div>
+		    <p>
+		       	% if object.partner_id.name:
+			       	Estimado
+			       	%if object.title:
+			       		% for title in  object.title:
+							${title.name}
+						% endfor
+			       	%endif
+			       	${object.partner_id.name} 
+				%endif
+		    </p>
+		    <p>
+				Nos permitimos contactarle para recordarle sobre la información y propuesta que le ha sido enviada.
+		    </p>
+		    <p>
+		    	Estamos a sus órdenes para ofrecerle mayor información o resolver cualquier duda, si considera que existe algo que nosotros podamos resolver para ayudar a su decisión no dude en hacérnoslo saber.
+		    </p>
+		    <p>
+		     	Agradecemos su atención y quedaremos pendientes de sus comentarios. 
+		    </p>
+		     <p>
+		      Saludos cordiales
+		    </p>
+	    </div>
+	</body>
+</html>

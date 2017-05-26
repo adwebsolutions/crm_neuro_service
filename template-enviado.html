@@ -1,0 +1,65 @@
+**********Subject***************
+
+Notificación de embarque
+
+******************Body**********
+
+<html>
+  	<head>
+    	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+ 	</head>
+	<body>
+		<div>
+		    <p>
+		       	% if object.partner_id.name:
+			       	Estimado
+			       	%if object.title:
+			       		% for title in  object.title:
+							${title.name}
+						% endfor
+			       	%endif
+			       	${object.partner_id.name} 
+				%endif
+		    </p>
+		    <p>
+				Nos complace informarle que su embarque ha sido enviado.
+				% if object.neuro_guia and object.probability >= 100:
+					A continuación encontrará el número de guía
+					% if object.neuro_fecha_llegada and object.probability >= 100:
+						y la fecha estimada de entrega
+					%endif
+					para seguimiento.
+				%endif
+		    </p>
+		    <p>
+		    	% if object.neuro_guia and object.probability >= 100:
+				<b>Número de Guía:</b>
+				${object.neuro_guia}
+			% endif
+		    </p>
+		    <p>
+		      	% if object.neuro_fecha_llegada and object.probability >= 100:
+					<b>Fecha estimada de entrega:</b>
+					${object.neuro_fecha_llegada}
+			% endif
+		    </p>
+		    <p style="color: #ff9300;">
+		    	<b>IMPORTANTE:</b>
+		    </p>
+	    	<ul>
+				<li>
+					Su embarque debe estar cubierto por un seguro para poder realizar cualquier reclamo.
+				</li>
+				<li>
+		    		La cinta de embalaje debe llegar a Ud. Intacta
+		    	</li>
+				<li>
+					Si el paquete o el contenido presentan daños. Ud cuenta con 48 horas hábiles para reportar el daño y aplicar esta garantía
+				</li>
+			</ul>
+		    <p>
+		    	Saludos cordiales
+		    </p>
+	    </div>
+	</body>
+</html>

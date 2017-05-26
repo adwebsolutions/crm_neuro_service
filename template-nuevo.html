@@ -9,6 +9,17 @@ en nuestro Evento
 		"${object.neuro_evento.name}"
 	%endif
 %endif
+--------------
+Gracias por contactarnos
+%if object.source_id.name != 'Evento' and object.source_id.name:
+	vía ${object.source_id.name}
+%endif
+%if object.source_id.name == 'Evento':
+	en nuestro Evento 
+	%if object.neuro_evento.name
+		"${object.neuro_evento.name}"
+	%endif
+%endif
 
 ******************Body**********
 <html>
@@ -72,7 +83,7 @@ Saludos cordiales
 		</div>
     </body>
 </html>
-
+---------------------
 <html>
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -225,6 +236,84 @@ Saludos cordiales
 	          </tr>
 	        </tbody>
 	      </table>
+	    </div>
+	</body>
+</html>
+
+----------------
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	</head>
+	<body>
+	  <div>    
+	    <p>
+			%if object.partner_id.name:
+		       	Estimado
+		       	%if object.title:
+		       		% for title in  object.title:
+						${title.name}
+					% endfor
+		       	%endif
+		       	${object.partner_id.name} 
+			%endif
+		</p>
+		<p>
+			%if object.source_id.name
+				Gracias por contactarnos a través de nuestro
+			%endif
+			%if object.source_id.name == False
+				Gracias por contactarnos,
+			%endif
+			% if object.source_id.name == 'Evento' and object.neuro_evento.name:
+				${object.source_id.name} "${object.neuro_evento.name}",
+			% endif
+			% if object.source_id.name == 'Evento' and not object.neuro_evento.name:
+				${object.source_id.name},
+			% endif
+			   % if object.source_id.name and object.source_id.name != 'Evento':
+			   	${object.source_id.name},
+			% endif
+			% if object.neuro_productos or object.neuro_servicios:
+				hemos recibido su solicitud de interés de los siguientes productos y/o servicios:
+			%endif
+			% if not object.neuro_productos and not object.neuro_servicios:
+				hemos recibido su solicitud.
+			%endif
+		</p>
+		<p>
+			% if object.neuro_productos:
+				Productos:
+				<ul>
+				% for neuro_productos in  object.neuro_productos:
+					<li>
+						${neuro_productos.name}
+					</li>
+				% endfor
+				</ul>
+				<br>
+			% endif
+			% if object.neuro_servicios:	
+			Servicios:
+				<ul>
+				% for neuro_servicios in  object.neuro_servicios:
+					<li>
+						${neuro_servicios.name}
+					</li>
+			% endfor
+			</ul>
+			% endif
+		</p>
+	    <p>
+	    	Le estaremos enviando la información detallada a la brevedad, mientras tanto lo invitamos a que visite nuestra página <a href="http://www.neuroservice.com.mx">www.neuroservice.com.mx</a>
+	    </p>
+	    <p>
+	      Saludos cordiales
+	    </p>
+	                                      
 	    </div>
 	</body>
 </html>

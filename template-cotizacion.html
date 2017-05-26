@@ -114,3 +114,38 @@ en nuestro Evento
 	    </div>
 	</body>
 </html>
+
+---------------------------------
+
+<html>
+  	<head>
+    	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+ 	</head>
+	<body>
+		<div>
+		    <p>
+		       	% if object.partner_id.name:
+			       	Estimado
+			       	%if object.title:
+			       		% for title in  object.title:
+							${title.name}
+						% endfor
+			       	%endif
+			       	${object.partner_id.name} 
+				%endif
+		    </p>
+		    <p>
+		      En días pasados le hicimos llegar una cotización sobre los productos y servicios de su interés.
+		    </p>
+		    <p>
+		      Le agradeceremos que nos confirme que la información ha sido recibida, nos interesa mucho cubrir sus requerimientos y contar con su aprobación. 
+		    </p>
+		    <p>
+		      Si necesita más información o tiene alguna duda, por favor contáctenos por este medio y trataremos de responder a la brevedad con la información adecuada.
+		    </p>
+		     <p>
+		      Saludos cordiales
+		    </p>
+	    </div>
+	</body>
+</html>

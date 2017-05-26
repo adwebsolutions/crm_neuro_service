@@ -1,0 +1,34 @@
+**********Subject***************
+Estamos muy pendientes de su respuesta
+
+******************Body**********
+
+<html>
+  	<head>
+    	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+ 	</head>
+	<body>
+		<div>
+		    <p>
+		       	% if object.partner_id.name:
+			       	Estimado
+			       	%if object.title:
+			       		% for title in  object.title:
+							${title.name}
+						% endfor
+			       	%endif
+			       	${object.partner_id.name} 
+				%endif
+		    </p>
+		    <p>
+				En días pasados le hicimos llegar información sobre los productos y servicios de su interés.
+		    </p>
+		    <p>
+		    	Estamos muy pendientes de resolver sus requerimientos. Si necesita más información o tiene alguna duda nos lo puede consultar por este medio.
+		    </p>
+		     <p>
+		      Saludos cordiales
+		    </p>
+	    </div>
+	</body>
+</html>
