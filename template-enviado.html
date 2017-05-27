@@ -40,7 +40,7 @@ Notificación de embarque
 		    <p>
 		      	% if object.neuro_fecha_llegada and object.probability >= 100:
 					<b>Fecha estimada de entrega:</b>
-					${object.neuro_fecha_llegada}
+					${format_tz(object.neuro_fecha_llegada,format='%d/%b/%Y - %I:%M %p')}
 			% endif
 		    </p>
 		    <p style="color: #ff9300;">
